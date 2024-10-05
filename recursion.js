@@ -9,7 +9,9 @@ testBtn.addEventListener("click", () => {
   // console.log(collatzConjecture(10));
   // console.log(sequence);
   // console.log(fibRecursive(20));
-  console.log(mergeSort([]));
+  let unsortedArray = [2, 4, 1, 5, 4];
+
+  console.log(mergeSort(unsortedArray));
 });
 
 function sumTo(n) {
@@ -71,7 +73,7 @@ function mergeSort(array) {
 }
 
 function mergeSort(array) {
-  if (array.length < 1) return array;
+  if (array.length <= 1) return array;
 
   let middle = Math.floor(array.length / 2);
   let leftArray = array.slice(0, middle);
@@ -87,4 +89,15 @@ function merge(left, right) {
   let result = [];
   let leftIndex = 0;
   let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 }
