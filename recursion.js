@@ -4,14 +4,59 @@ testBtn.addEventListener("click", () => {
   // console.log(sumToLoop(1000));
   // console.log(arithmeticSum(1000));
   // console.log(factorial(0));
-  console.log(fibLoop(20));
+  // console.log(fibLoop(20));
   // sequence = [];
   // console.log(collatzConjecture(10));
   // console.log(sequence);
-  console.log(fibRecursive(20));
+  // console.log(fibRecursive(20));
   // let unsortedArray = [2, 4, 1, 5, 4];
-  // console.log(mergeSort(unsortedArray));
+  // console.log(mergeS(unsortedArray));
+
+  // let sortedArray = [1, 2, 3, 4, 5, 6, 7];
+  // binarySearch(sortedArray, 5);
+
+  const t0 = performance.now();
+  console.log(factorial(13));
+  const t1 = performance.now();
+  console.log("The function took: " + (t1 - t0) + " milliseconds.");
 });
+
+function binarySearch(sortedArray, value) {}
+
+let sortedArray = [1, 2, 3, 4, 5, 6, 7];
+binarySearch(sortedArray, 5);
+
+function mergeS(array) {
+  if (array.length <= 1) return array;
+
+  let middle = Math.floor(array.length / 2);
+  let left = array.slice(0, middle);
+  let right = array.slice(middle);
+
+  let sortedLeft = mergeS(left);
+  let sortedRight = mergeS(right);
+
+  return mergeArray(sortedLeft, sortedRight);
+}
+
+function mergeArray(leftArray, rightArray) {
+  let result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
+    if (leftArray[leftIndex] < rightArray[rightIndex]) {
+      result.push(leftArray[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(rightArray[rightIndex]);
+      rightIndex++;
+    }
+  }
+  return result
+    .concat(leftArray.slice(leftIndex))
+    .concat(rightArray.slice(rightIndex));
+}
 
 function sumTo(n) {
   if (n === 1) return 1;
