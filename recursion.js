@@ -4,14 +4,13 @@ testBtn.addEventListener("click", () => {
   // console.log(sumToLoop(1000));
   // console.log(arithmeticSum(1000));
   // console.log(factorial(0));
-  // console.log(fibLoop(20));
+  console.log(fibLoop(20));
   // sequence = [];
   // console.log(collatzConjecture(10));
   // console.log(sequence);
-  // console.log(fibRecursive(20));
-  let unsortedArray = [2, 4, 1, 5, 4];
-
-  console.log(mergeSort(unsortedArray));
+  console.log(fibRecursive(20));
+  // let unsortedArray = [2, 4, 1, 5, 4];
+  // console.log(mergeSort(unsortedArray));
 });
 
 function sumTo(n) {
